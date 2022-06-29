@@ -8,10 +8,24 @@ public class SearchSample {
                 System.out.print(list[i][j]+" ");
             }
         }
-        System.out.println("Reverse index of column and row:");
+        System.out.println("\t");
+        System.out.println("Reverse index of column and row and print:");
+        int[][] transpose = new int[3][3];
+        for(int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                transpose[j][i] = list[i][j];
+            }
+        }
+
+        for (int i = 0; i < 3; i++) {
+            System.out.println("\t");
+            for (int j = 0; j < 3; j++) {
+                System.out.print(transpose[i][j]+" ");
+            }
+        }
 
         System.out.println("\t");
-        int searchValue = 2;
+        int searchValue = 5;
         int positionX = -1;
         int positionY = -1;
         PARENT_LOOP:
@@ -21,7 +35,7 @@ public class SearchSample {
                 if (list[i][j] == searchValue) {
                     positionX = i;
                     positionY = j;
-                    break PARENT_LOOP;
+                    break PARENT_LOOP; // nhảy ra hẳn khỏi vòng lặp bên ngoài luôn mới sợ
                 }
             }
         }
@@ -31,5 +45,4 @@ public class SearchSample {
             System.out.println("Value " + searchValue + " found at: " + "(" + positionX + "," + positionY + ")");
         }
     }
-
 }
